@@ -2,7 +2,7 @@
   import icon from '../../images/icon/ihg.png';
 </script>
 
-<div class="flex justify-between items-center bg-[#0c0c1c] py-4 px-8" id="navbar-container">
+<div class="flex justify-between items-center bg-[#0c0c1c] py-40 px-8" id="navbar-container">
   <!-- Logo -->
   <div class="ml-12" id="icon-container">
     <img src={icon} alt="Logo" class="w-16 hover:scale-110 transition-transform duration-500" />
