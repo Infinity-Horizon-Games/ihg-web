@@ -11,7 +11,7 @@
   <!-- Navigation Links -->
   <div class="flex space-x-16" id="pages-container">
     <a href="/" class="nav-item group">
-      <div class="nav-content bg-gradient-to-tr from-[#2443a1] to-[#5eb3f4]">
+      <div class="nav-content bg-gradient-to-tr from-[#2443a1] to-[#5eb3f4] group-hover:shadow-[0_6px_20px_3px_rgba(30,100,255,0.7)] transition-all duration-500">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -28,7 +28,7 @@
     </a>
 
     <a href="/jeux" class="nav-item group">
-      <div class="nav-content bg-gradient-to-tr from-[#2c6054] to-[#79f8dd]">
+      <div class="nav-content bg-gradient-to-tr from-[#2c6054] to-[#79f8dd] group-hover:shadow-[0_6px_20px_3px_rgba(62,158,136,0.7)] transition-all duration-500">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
@@ -46,7 +46,7 @@
     </a>
 
     <a href="/prochainement" class="nav-item group">
-      <div class="nav-content bg-gradient-to-tr from-[#4e1cc2] to-[#ca82f7]">
+      <div class="nav-content bg-gradient-to-tr from-[#4e1cc2] to-[#ca82f7] group-hover:shadow-[0_6px_20px_3px_rgba(105,70,212,0.7)] transition-all duration-500">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -113,14 +113,7 @@
     transition: transform 0.5s ease-in-out;
   }
 
-  .text {
-    font-weight: bold;
-    color: #75b8ff;
-    transition: color 0.3s ease-in-out;
-  }
-
   .nav-content:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
   }
 </style>
