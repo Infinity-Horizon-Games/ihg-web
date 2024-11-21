@@ -1,0 +1,21 @@
+name: Sync to Personal Repo
+
+on:
+  push:
+    branches:
+      - main  # Branche que tu veux synchroniser
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Push to Personal Repo
+        env:
+          PERSONAL_REPO_TOKEN: ${{ secrets.PERSONAL_REPO_TOKEN }}
+        run: |
+          git remote add personal https://ddgaidi:${PERSONAL_REPO_TOKEN}@github.com/ddgaidi/ihg-web.git
+          git push personal main --force
