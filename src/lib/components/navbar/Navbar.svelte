@@ -1,5 +1,19 @@
-<script>
+<script lang="ts">
   import icon from '../../images/icon/ihg.png';
+
+  // TypeScript: Référence aux éléments HTML
+  let settingsModal: HTMLElement | null;
+
+  // Fonction pour afficher ou cacher le modal
+  const toggleModal = (show: boolean): void => {
+    if (settingsModal) {
+      settingsModal.classList.toggle("hidden", !show);
+    }
+  };
+
+  // Gestionnaires d'événements
+  const openModal = () => toggleModal(true);
+  const closeModal = () => toggleModal(false);
 </script>
 
 <div class="flex justify-between items-center bg-[#0c0c1c] py-4 px-8" id="navbar-container">
@@ -64,18 +78,31 @@
   <!-- Right Section -->
   <div id="right-container" class="flex space-x-5 mr-12">
     <!-- Settings Icon -->
-    <div id="settings-container" class="hover:scale-110 transition-transform duration-500">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        width="24"
-        height="24"
-        class="fill-current text-gray-400 hover:text-white"
-      >
-      <path d="M1,4.75H3.736a3.728,3.728,0,0,0,7.195,0H23a1,1,0,0,0,0-2H10.931a3.728,3.728,0,0,0-7.195,0H1a1,1,0,0,0,0,2ZM7.333,2a1.75,1.75,0,1,1-1.75,1.75A1.752,1.752,0,0,1,7.333,2Z"/>
-      <path d="M23,11H20.264a3.727,3.727,0,0,0-7.194,0H1a1,1,0,0,0,0,2H13.07a3.727,3.727,0,0,0,7.194,0H23a1,1,0,0,0,0-2Zm-6.333,2.75A1.75,1.75,0,1,1,18.417,12,1.752,1.752,0,0,1,16.667,13.75Z"/>
-      <path d="M23,19.25H10.931a3.728,3.728,0,0,0-7.195,0H1a1,1,0,0,0,0,2H3.736a3.728,3.728,0,0,0,7.195,0H23a1,1,0,0,0,0-2ZM7.333,22a1.75,1.75,0,1,1,1.75-1.75A1.753,1.753,0,0,1,7.333,22Z" />
-      </svg>
+    <button id="settings-container" type="button" class="hover:scale-110 transition-transform duration-500 cursor-pointer" on:click={openModal} aria-label="Open settings menu">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="fill-current text-gray-400 hover:text-white">
+          <path d="M1,4.75H3.736a3.728,3.728,0,0,0,7.195,0H23a1,1,0,0,0,0-2H10.931a3.728,3.728,0,0,0-7.195,0H1a1,1,0,0,0,0,2ZM7.333,2a1.75,1.75,0,1,1-1.75,1.75A1.752,1.752,0,0,1,7.333,2Z"/>
+          <path d="M23,11H20.264a3.727,3.727,0,0,0-7.194,0H1a1,1,0,0,0,0,2H13.07a3.727,3.727,0,0,0,7.194,0H23a1,1,0,0,0,0-2Zm-6.333,2.75A1.75,1.75,0,1,1,18.417,12,1.752,1.752,0,0,1,16.667,13.75Z"/>
+          <path d="M23,19.25H10.931a3.728,3.728,0,0,0-7.195,0H1a1,1,0,0,0,0,2H3.736a3.728,3.728,0,0,0,7.195,0H23a1,1,0,0,0,0-2ZM7.333,22a1.75,1.75,0,1,1,1.75-1.75A1.753,1.753,0,0,1,7.333,22Z"/>
+        </svg>
+      </button>
+    
+    <!-- Modal -->
+    <div id="settings-modal" bind:this={settingsModal} class="fixed left-[-30px] inset-0 flex items-center justify-center bg-black bg-opacity-80 hidden">
+      <div class="bg-white w-[500px] h-[700px] rounded-lg p-5">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-xl font-bold">PARAMETRES</h2>
+          <button
+            class="text-gray-600 hover:text-black"
+            on:click={closeModal}
+          >
+            ✖
+          </button>
+        </div>
+        <div class="p-4">
+          <!-- Contenu des paramètres -->
+          <p class="text-gray-700">Contenu des paramètres ici...</p>
+        </div>
+      </div>
     </div>
 
     <!-- Profile Icon -->
